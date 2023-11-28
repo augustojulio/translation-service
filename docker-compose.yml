@@ -6,6 +6,7 @@ services:
     build:
       context: .
       target: app-dev
+    command: sh -c "uvicorn main:get_app --factory --host 0.0.0.0 --port 8000 --reload"
     ports:
       - "8000:8000"
     depends_on:

@@ -19,4 +19,4 @@ RUN poetry install
 # For Deployment
 FROM base as release
 ENV LOG_LEVEL=INFO
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:get_app", "--host", "0.0.0.0", "--port", "8000"]
