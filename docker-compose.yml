@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  translation-service:
+    container_name: "translation-api"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - words-db
+    environment:
+      - DATABASE_URL=postgresql://uwords:pwords@postgres/wordsdb
+
+  words-db:
+    image: postgres:13.4-alpine
+    container_name: "words-db"
+    hostname: "words-db"
+    environment:
+      POSTGRES_USER: uwords
+      POSTGRES_PASSWORD: pwords
+      POSTGRES_DB: wordsdb
+    ports:
+      - "5432:5432"
