@@ -5,7 +5,7 @@ services:
     container_name: "translation-api"
     build:
       context: .
-      dockerfile: Dockerfile
+      target: app-dev
     ports:
       - "8000:8000"
     depends_on:
